@@ -10,18 +10,23 @@ $(document).ready(function() {
     }
   });
 
-  $.ajax({
-    type: 'GET',
-    url: 'https://pay.voicybot.com/stats',
-  })
-  .done(function(data) {
-    $("#stats").empty();
-    $("#stats").append("So far <a href=\"https://telegram.me/voicybot\">@voicybot</a> was added to " + data.chatCount + " chats and recognized " + data.voiceCount + " voice messages.");
-    stats = data;
-    if (chartReady) {
-      drawChart();
-    }
-  });
+  function reloadData() {
+    console.log('reload');  
+    $.ajax({
+      type: 'GET',
+      url: 'https://pay.voicybot.com/stats',
+    })
+    .done(function(data) {
+      $("#stats").empty();
+      $("#stats").append("So far <a href=\"https://telegram.me/voicybot\">@voicybot</a> was added to " + data.chatCount + " chats and recognized " + data.voiceCount + " voice messages.");
+      stats = data;
+      if (chartReady) {
+        drawChart();
+      }
+    });
+  }
+  reloadData();
+  setInterval(reloadData, 20000);
 
   function resize () {
     drawChart();
