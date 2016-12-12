@@ -11,7 +11,6 @@ $(document).ready(function() {
   });
 
   function reloadData() {
-    console.log('reload');  
     $.ajax({
       type: 'GET',
       url: 'https://pay.voicybot.com/stats',
