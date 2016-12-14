@@ -5,3 +5,4 @@ This repository contains the code for [voicybot.com](http://voicybot.com). If yo
 
 # As seen on
 [![Habrahabr](/images/habr.png?raw=true)](https://habrahabr.ru/post/316824/)
+[![Spark](/images/spark.png?raw=true)](https://spark.ru/startup/voicy/blog/19008/kak-zapustit-proekt-v-odinochku/)
