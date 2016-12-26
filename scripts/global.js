@@ -22,6 +22,14 @@ $(document).ready(function() {
       if (chartReady) {
         drawChart();
       }
+      $("#words").empty();
+      var words = [];
+      var arr = data.wordCount;
+      for (i in arr) {
+        words.push(arr[i].word + " (" + arr[i].count + ")");
+      }
+      $("#words").append(words.join(", ") + ".");
+      
     });
   }
   reloadData();
