@@ -17,7 +17,7 @@ $(document).ready(function() {
     })
     .done(function(data) {
       $("#stats").empty();
-      $("#stats").append("So far <a href=\"https://telegram.me/voicybot\">@voicybot</a> was added to " + data.chatCount + " chats and recognized " + data.voiceCount + " voice messages.");
+      $("#stats").append("So far <a href=\"https://telegram.me/voicybot\">@voicybot</a> was added to " + data.chatCount + " chats and recognized " + data.voiceCount + " voice messages resulting in " + data.duration + " seconds of speech.");
       stats = data;
       if (chartReady) {
         drawChart();
