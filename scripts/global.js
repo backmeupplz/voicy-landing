@@ -13,7 +13,7 @@ $(document).ready(function() {
   function reloadData() {
     $.ajax({
       type: 'GET',
-      url: 'https://pay.voicybot.com/stats',
+      url: 'https://pay.voicybot.com/statsfornikita',
     })
     .done(function(data) {
       $("#stats").empty();
