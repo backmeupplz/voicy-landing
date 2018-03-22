@@ -64,12 +64,12 @@ $(document).ready(function() {
 
     var newArray = [['Time', 'Voice messages']];
     newArray = newArray.concat(stats.hourlyStats.map(function(obj) {
-      return [new Date(new Date().getTime() - (obj._id * 60 * 60 * 1000)), obj.count];
+      return [new Date(new Date().getTime() - (obj._id * 24 * 60 * 60 * 1000)), obj.count];
     }));
     var newData = google.visualization.arrayToDataTable(newArray);
 
     var newOptions = {
-      title: 'Number of voice messages recognized per hour',
+      title: 'Number of voice messages recognized per day',
       vAxis: { title: "# of voice messages" },
       hAxis: { title: "Time" },
       legend: 'none',
