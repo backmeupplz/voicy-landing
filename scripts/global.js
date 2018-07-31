@@ -47,19 +47,6 @@ $(document).ready(function() {
 
   function drawChart() {;
     if (!stats) { return; }
-    var array = [['Voice messages', 'Chats']];
-    array = array.concat(stats.voiceStats.map(function(obj) {
-      return [obj._id, obj.count];
-    }));
-    var data = google.visualization.arrayToDataTable(array);
-
-    var options = {
-      title: 'Number of voice messages recognized vs number of chats with such number of voice messages recognized',
-      vAxis: {title: "# of chats"},
-      hAxis: {title: "# of voice messages"},
-      legend: 'none',
-    };
-
 
     var newArray = [['Time', 'Voice messages']];
     newArray = newArray.concat(stats.hourlyStats.map(function(obj) {
@@ -75,6 +62,6 @@ $(document).ready(function() {
     };
     var chart2 = new google.visualization.ColumnChart(document.getElementById('curve_chart'));
 
-    chart.draw(data, options);
+    chart2.draw(data, options);
   }
 });
