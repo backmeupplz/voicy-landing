@@ -60,7 +60,6 @@ $(document).ready(function() {
       legend: 'none',
     };
 
-    var chart = new google.visualization.ColumnChart(document.getElementById('curve_chart2'));
 
     var newArray = [['Time', 'Voice messages']];
     newArray = newArray.concat(stats.hourlyStats.map(function(obj) {
@@ -77,6 +76,5 @@ $(document).ready(function() {
     var chart2 = new google.visualization.ColumnChart(document.getElementById('curve_chart'));
 
     chart.draw(data, options);
-    chart2.draw(newData, newOptions);
   }
 });
