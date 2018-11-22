@@ -1,59 +1,96 @@
 $(document).ready(function() {
-  var stats;
-  var chartReady;
+  var stats
+  var chartReady
 
-  google.charts.load('current', {'packages':['corechart']});
+  google.charts.load('current', { packages: ['corechart'] })
   google.charts.setOnLoadCallback(function() {
-    chartReady = true;
+    chartReady = true
     if (stats) {
-      drawChart();
+      drawChart()
     }
-  });
+  })
 
   function reloadData() {
     $.ajax({
       type: 'GET',
       url: 'https://pay.voicybot.com/statsfornikita',
-    })
-    .done(function(data) {
-      $("#stats").empty();
-      $("#stats").append("So far <a href=\"https://telegram.me/voicybot\">@voicybot</a> was added to " + data.chatCount + " chats and recognized " + data.voiceCount + " voice messages resulting in " + data.duration + " seconds of speech.");
-      stats = data;
+    }).done(function(data) {
+      $('#stats').empty()
+      $('#stats').append(
+        'So far <a href="https://telegram.me/voicybot">@voicybot</a> was added to ' +
+          data.chatCount +
+          ' chats and recognized ' +
+          data.voiceCount +
+          ' voice messages resulting in ' +
+          data.duration +
+          ' seconds of speech.'
+      )
+      stats = data
       if (chartReady) {
-        drawChart();
+        drawChart()
       }
-    });
+    })
   }
-  reloadData();
-  setInterval(reloadData, 20000);
+  reloadData()
+  setInterval(reloadData, 20000)
 
-  function resize () {
-    drawChart();
+  function resize() {
+    drawChart()
   }
   if (window.addEventListener) {
-    window.addEventListener('resize', resize);
-  }
-  else {
-    window.attachEvent('onresize', resize);
+    window.addEventListener('resize', resize)
+  } else {
+    window.attachEvent('onresize', resize)
   }
 
-  function drawChart() {;
-    if (!stats) { return; }
+  function drawChart() {
+    if (!stats) {
+      return
+    }
 
-    var newArray = [['Time', 'Voice messages']];
-    newArray = newArray.concat(stats.hourlyStats.map(function(obj) {
-      return [new Date(new Date().getTime() - (obj._id * 24 * 60 * 60 * 1000)), obj.count];
-    }));
-    var newData = google.visualization.arrayToDataTable(newArray);
+    var newArray = [['Time', 'Voice messages']]
+    newArray = newArray.concat(
+      stats.hourlyStats.map(function(obj) {
+        return [
+          new Date(new Date().getTime() - obj._id * 24 * 60 * 60 * 1000),
+          obj.count,
+        ]
+      })
+    )
+    var newData = google.visualization.arrayToDataTable(newArray)
 
     var newOptions = {
       title: 'Number of voice messages recognized per day',
-      vAxis: { title: "# of voice messages" },
-      hAxis: { title: "Time" },
+      vAxis: { title: '# of voice messages' },
+      hAxis: { title: 'Time' },
       legend: 'none',
-    };
-    var chart2 = new google.visualization.ColumnChart(document.getElementById('curve_chart'));
+    }
+    var chart = new google.visualization.ColumnChart(
+      document.getElementById('curve_chart')
+    )
 
-    chart2.draw(newData, newOptions);
+    chart.draw(newData, newOptions)
+
+    // Second chart
+
+    var newArray = [['Time', 'Messages']]
+    newArray = newArray.concat(
+      stats.messageStats.map(function(obj) {
+        return [new Date(obj.date), obj.count]
+      })
+    )
+    var newData = google.visualization.arrayToDataTable(newArray)
+
+    var newOptions2 = {
+      title: 'Number of messages recognized per day',
+      vAxis: { title: '# of messages' },
+      hAxis: { title: 'Time' },
+      legend: 'none',
+    }
+    var chart2 = new google.visualization.LineChart(
+      document.getElementById('curve_chart2')
+    )
+
+    chart2.draw(newData, newOptions2)
   }
-});
+})
