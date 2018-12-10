@@ -92,5 +92,57 @@ $(document).ready(function() {
     )
 
     chart2.draw(newData, newOptions2)
+
+    // Third chart
+
+    var newArray3 = [['Time', 'Chats']]
+    var count = 0
+    newArray3 = newArray3.concat(
+      stats.chatsDailyStats.map(function(obj) {
+        count += obj.count
+        return [
+          new Date(new Date().getTime() - obj._id * 24 * 60 * 60 * 1000),
+          count,
+        ]
+      })
+    )
+    var newData3 = google.visualization.arrayToDataTable(newArray3)
+
+    var newOptions3 = {
+      title: 'Number of chats per day',
+      vAxis: { title: '# of chats' },
+      hAxis: { title: 'Time' },
+      legend: 'none',
+    }
+    var chart3 = new google.visualization.LineChart(
+      document.getElementById('curve_chart3')
+    )
+
+    chart3.draw(newData3, newOptions3)
+
+    // Fourth chart
+
+    var newArray4 = [['Time', 'Chats']]
+    newArray4 = newArray4.concat(
+      stats.chatsDailyStats.map(function(obj) {
+        return [
+          new Date(new Date().getTime() - obj._id * 24 * 60 * 60 * 1000),
+          obj.count,
+        ]
+      })
+    )
+    var newData4 = google.visualization.arrayToDataTable(newArray4)
+
+    var newOptions4 = {
+      title: 'Number of chats created per day',
+      vAxis: { title: '# of chats' },
+      hAxis: { title: 'Time' },
+      legend: 'none',
+    }
+    var chart4 = new google.visualization.ColumnChart(
+      document.getElementById('curve_chart4')
+    )
+
+    chart4.draw(newData4, newOptions4)
   }
 })
