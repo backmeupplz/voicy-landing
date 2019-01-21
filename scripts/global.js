@@ -22,8 +22,8 @@ $(document).ready(function() {
           ' chats and recognized ' +
           data.voiceCount +
           ' voice messages resulting in ' +
-          data.duration +
-          ' seconds of speech.'
+          (data.duration / 60 / 60 / 24 / 365).toFixed(4) +
+          ' years of speech.'
       )
       stats = data
       if (chartReady) {
