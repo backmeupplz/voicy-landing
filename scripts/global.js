@@ -98,7 +98,7 @@ $(document).ready(function() {
     var newArray3 = [['Time', 'Chats']]
     var count = 0
     newArray3 = newArray3.concat(
-      stats.chatsDailyStats.map(function(obj) {
+      stats.chatDailyStats.map(function(obj) {
         count += obj.count
         return [
           new Date(new Date().getTime() - obj._id * 24 * 60 * 60 * 1000),
@@ -124,7 +124,7 @@ $(document).ready(function() {
 
     var newArray4 = [['Time', 'Chats']]
     newArray4 = newArray4.concat(
-      stats.chatsDailyStats.map(function(obj) {
+      stats.chatDailyStats.map(function(obj) {
         return [
           new Date(new Date().getTime() - obj._id * 24 * 60 * 60 * 1000),
           obj.count,
@@ -144,5 +144,27 @@ $(document).ready(function() {
     )
 
     chart4.draw(newData4, newOptions4)
+
+    // Fifth chart
+    var newArray5 = [['Time', 'Response time']]
+    newArray5 = newArray5.concat(
+      Object.keys(stats.responseTime).map(k => [
+        new Date(k * 1000),
+        stats.responseTime[k],
+      ])
+    )
+    var newData5 = google.visualization.arrayToDataTable(newArray5)
+
+    var newOptions5 = {
+      title: 'Average response delay',
+      vAxis: { title: 'Delay, s' },
+      hAxis: { title: 'Time' },
+      legend: 'none',
+    }
+    var chart5 = new google.visualization.LineChart(
+      document.getElementById('curve_chart5')
+    )
+
+    chart5.draw(newData5, newOptions5)
   }
 })
