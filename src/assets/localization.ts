@@ -10,6 +10,8 @@ export const messages = {
       'Если вы ищите статистику проекта, то она доступна на <a target="_blank" href="https://borodutch.com">borodutch.com</a>',
     errors: {
       internal: 'Внутренняя ошибка сервера',
+      size: 'Файл должен быть меньше 200 мегабайт',
+      keySize: 'Файл ключей должен быть меньше 1 мегабайта',
     },
     recognition: {
       headline:
@@ -49,6 +51,8 @@ export const messages = {
       'If you\'re looking for the project stats, it\'s available at <a target="_blank" href="https://borodutch.com">borodutch.com</a>',
     errors: {
       internal: 'Internal server error',
+      size: 'File should be smaller than 200 megabytes',
+      keySize: 'Credentials file should be smaller than 1 megabyte',
     },
     recognition: {
       headline:

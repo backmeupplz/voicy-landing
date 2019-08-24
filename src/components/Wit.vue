@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  v-form(ref='form')
     v-card(flat)
       v-card-text
         span(v-html='$t("recognition.wit.headline")')
@@ -16,7 +16,8 @@
         persistent-hint
         v-model='file'
         :hint='$t("recognition.fileHint")'
-        :loading='loading')
+        :loading='loading'
+        :rules='rules')
       v-card-actions
         v-progress-linear(v-if='loading'
         :value='progress'
@@ -25,7 +26,7 @@
         color='blue lighten-3'
         :indeterminate='recognizing').mx-3 {{status}}
         v-spacer
-        v-btn(:disabled='!key || !file || loading'
+        v-btn(:disabled='!key || !file || loading || !valid'
         large
         color='primary'
         :loading='loading'
@@ -38,6 +39,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Watch } from "vue-property-decorator";
 import * as api from "../utils/api";
 import * as store from "../plugins/store";
 import { i18n } from "../plugins/i18n";
@@ -47,6 +49,10 @@ export default class Wit extends Vue {
   key = "";
   file = null;
 
+  rules = [
+    (value: any) => !value || value.size < 200000000 || i18n.t("errors.size")
+  ];
+
   loading = false;
   recognizing = false;
   progress = 0;
@@ -54,6 +60,13 @@ export default class Wit extends Vue {
   status = "";
 
   result = "";
+
+  valid = false;
+
+  @Watch("file")
+  fileChanged() {
+    this.valid = (this.$refs.form as any).validate();
+  }
 
   async recognize() {
     if (!this.key.trim() || !this.file) {
