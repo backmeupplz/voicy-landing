@@ -6,7 +6,7 @@ This repository contains the code for [voicybot.com](http://voicybot.com) web pa
 
 1. `yarn install` installs the dependencies
 2. `yarn serve` compiles and hot-reloads dev server
-   3/ `yarn build` builds the website for productions
+3. `yarn build` builds the website for productions
 
 # License
 
