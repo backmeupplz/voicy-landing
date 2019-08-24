@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && rm -rf docs && mv dist docs",
+    "build": "vue-cli-service build && rm -rf docs && mv dist docs && cp CNAME docs/CNAME",
     "distribute": "vue-cli-service serve --mode development"
   },
   "dependencies": {
