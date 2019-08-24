@@ -10,6 +10,8 @@
         target='_blank'
         href='https://t.me/voicybot') {{$t('add')}}
     Recognition
+    .caption.text-center(v-html='$t("footer")')
+    .caption.text-center(v-html='$t("author")')
 </template>
 
 <script lang="ts">

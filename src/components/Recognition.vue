@@ -2,7 +2,8 @@
   div
     v-row
       v-col
-        p(v-html='$t("recognition.headline")')
+        p.text-center(v-html='$t("premise")')
+        p.text-center(v-html='$t("recognition.headline")')
     v-row
       v-col
         v-tabs(v-model='currentTab'
@@ -29,6 +30,6 @@ import GoogleSpeech from "./GoogleSpeech.vue";
   }
 })
 export default class Recognition extends Vue {
-  currentTab = 1;
+  currentTab = 0;
 }
 </script>
