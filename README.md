@@ -1,5 +1,3 @@
-[![Voicybot](/images/logo-gh.png?raw=true)](http://voicybot.com/)
-
 # [@voicybot](https://telegram.me/voicybot) web page
 
 This repository contains the code for [voicybot.com](http://voicybot.com) web page. If you are looking for any other [@voicybot](https://t.me/voicybot) repositories, please proceed to [the main repository](https://github.com/backmeupplz/voicy).
