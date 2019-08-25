@@ -33,7 +33,10 @@
         @click='recognize') {{$t('recognition.recognize')}}
     div(v-if='result')
       v-divider
-      blockquote.blockquote {{result}}
+      v-card(flat)
+        v-card-text
+          .title {{$t('result')}}
+          blockquote.blockquote {{result}}
 </template>
 
 <script lang="ts">

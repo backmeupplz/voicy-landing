@@ -39,6 +39,7 @@ export const messages = {
       'Проблемы с этим сайтом? Ищите помощь на <a target="_blank" href="https://t.me/borodutch_support">нашем канале поддержки</a>. Удачи!',
     author:
       'Сделано <a target="_blank" href="https://borodutch.com">@borodutch</a> с ❤️',
+    language: 'Язык',
   },
   en: {
     title: 'Voicy',
@@ -80,5 +81,6 @@ export const messages = {
       'Having issues with this website? Find help on <a target="_blank" href="https://t.me/borodutch_support">our support channel</a>. Cheers!',
     author:
       'Made by <a target="_blank" href="https://borodutch.com">@borodutch</a> with ❤️',
+    language: 'Language',
   },
 }

@@ -19,6 +19,10 @@
         :hint='$t("recognition.fileHint")'
         :loading='loading'
         :rules='rules')
+        v-overflow-btn(:items='languages'
+        :label='$t("language")'
+        editable
+        v-model='language')
       v-card-actions
         v-progress-linear(v-if='loading'
         :value='progress'
@@ -47,6 +51,7 @@ import { Watch } from "vue-property-decorator";
 import * as api from "../utils/api";
 import * as store from "../plugins/store";
 import { i18n } from "../plugins/i18n";
+import { googleLanguages } from "../assets/languages";
 
 @Component
 export default class Wit extends Vue {
@@ -71,17 +76,28 @@ export default class Wit extends Vue {
 
   result = "";
 
+  languages = Object.keys(googleLanguages).map(key => ({
+    text: key,
+    value: (googleLanguages as any)[key]
+  }));
+
+  language = null;
+
   @Watch("key")
   keyChanged() {
-    this.valid = (this.$refs.form as any).validate();
+    this.valid = (this.$refs.form as any).validate() && !!this.language;
   }
   @Watch("file")
   fileChanged() {
-    this.valid = (this.$refs.form as any).validate();
+    this.valid = (this.$refs.form as any).validate() && !!this.language;
+  }
+  @Watch("language")
+  languageCHanged() {
+    this.valid = (this.$refs.form as any).validate() && !!this.language;
   }
 
   async recognize() {
-    if (!this.key || !this.file || !this.valid) {
+    if (!this.key || !this.file || !this.valid || !this.language) {
       return;
     }
     this.loading = true;
@@ -99,7 +115,8 @@ export default class Wit extends Vue {
             this.recognizing = true;
             this.status = i18n.t("recognizing") as string;
           }
-        }
+        },
+        this.language!
       );
       this.result = response.data.text || i18n.t("noText");
     } catch (err) {
