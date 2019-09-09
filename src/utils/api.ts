@@ -26,5 +26,6 @@ export async function recognize(
         Math.round((progressEvent.loaded * 100) / progressEvent.total)
       )
     },
+    timeout: 60 * 60 * 1000,
   })
 }
