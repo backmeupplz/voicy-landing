@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/node": "^12.7.2",
     "axios": "^0.21.1",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
