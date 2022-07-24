@@ -83,4 +83,46 @@ export const messages = {
       'Made by <a target="_blank" href="https://borodutch.com">@borodutch</a> with ❤️',
     language: 'Language',
   },
-}
+  ar: {
+    title: 'فويسي',
+    notFound: 'الصفحة غير موجودة',
+    close: 'إغلاق',
+    headline:
+      '<a target="_blank" href="https://t.me/voicybot">@voicybot</a> يستطيع تحويل كل الرسائل الصوتية إلى رسائل نصية تلقائيًا عند إضافته إلى محادثة جماعية.',
+    add: 'إضافة إلى تليجرام',
+    premise:
+      'إذا كنت تبحث عن حالة المشروع فستجدها على الرابط <a target="_blank" href="https://borodutch.com">borodutch.com</a>',
+    errors: {
+      internal: 'خطأ في الخادم الداخلي',
+      size: 'يجب أن يكون حجم الملف الصوتي أصغر من 200 ميجا بايت',
+      keySize: 'يجب أن يكون حجم ملف الاعتماديات أصغر من 1 ميجا بايت',
+    },
+    recognition: {
+      headline:
+        'للأسف لا يدعم تليجرام تحميل الملفات ذات الحجم اﻷكبر من 20 ميجا بواسطة البوتات. ولتجاوز هذا الحد قمنا بإتاحة تحويل الصوت إلى كلام عبر هذا الموقع. هذه الخدمة مجانية تماما ولا تخزن أي بيانات على خوادمنا، كما أن الكود <a target="_blank" href="https://github.com/backmeupplz/voicy-landing">مفتوح المصدر بشكل كامل</a>.',
+      wit: {
+        headline:
+          '<a target="_blank" href="https://wit.ai">Wit.ai</a> هي خدمة مجانية للتعرف على الصوت. تدعم الخدمة تحويل الصوتيات بحد أقصى 15 ثانية، لكن فويسي يقسم تلقائيا الصوتيات التي ترسلها إلى أجزاء بطول 10 ثوان ثم يرسلها للتعرف عليها بشكل منفصل. السلبية الوحيدة لهذا اﻷمر هو حدوث بعض التقطيع أحيانا بين أجزاء الصوت. من فضلك أدخل مفتاح تطبيق Wit الخاص بك في النموذج أدناه. وهذه <a target="_blank" href="https://medium.com/@nikitakolmogorov/getting-wit-app-key-for-voicybot-com-7c150672070b?postPublishedType=initial">كيفية</a> الحصول على هذا المفتاح.',
+        key: 'مفتاح تطبيق Wit',
+      },
+      file: 'الملف المراد التعرف عليه',
+      fileHint: 'نحن لا نخزن ملفاتك',
+      keyHint: 'نحن لا نخزن مفاتيحك',
+      gs: {
+        headline:
+          '<a target="_blank" href="https://cloud.google.com/speech-to-text/">خدمة جوجل للتعرف الصوتي</a> هي محرك تعرف على الصوت أكثر تقدما. بعد أن يحصل فويسي على الملف الذي تريد تحويله يقوم برفعه إلى تخزين جوجل السحابي، ثم يبدأ التعرف عليه بواسطة خدمة التعرف الصوتي وأخيرا يحذف الملف من تخزين جوجل بعد اﻹنتهاء. من فضلك أدخل ملف اعتماديات خدمة جوجل السحابية الخاصة بك في النموذج أدناه. وهذه <a target="_blank" href="https://medium.com/@nikitakolmogorov/getting-google-speech-credentials-for-voicybot-com-e389e4a4059d">كيفية</a> الحصول على هذه الاعتماديات. من فضلك انتبه إلى أن التعرف الصوتي من جوجل ليس مجانيا وجوجل سوف تحاسبك على مقدار الاستخدام كما هو موضح في <a target="_blank" href="https://cloud.google.com/speech-to-text/pricing">هذا المرجع</a>.',
+        key: 'اعتماديات سحابة جوجل',
+      },
+      recognize: 'تحويل الصوت إلى كلام',
+    },
+    uploading: 'يتم رفع الملف إلى خادم فويسي',
+    noText: 'يبدو أن فويسي لم يكن قادرا على التعرف على هذا الملف.',
+    recognizing: 'التعرف على الكلام...',
+    result: 'النتيجة:',
+    footer:
+      'هل تواجه مشاكل في استخدام الموقع؟ يمكننا مساعدتك <a target="_blank" href="https://t.me/borodutch_support">على قناة الدعم</a>. ابتهج!',
+    author: 'طور بواسطة <a target="_blank" href="https://borodutch.com">@borodutch</a> مع كل الحب ❤️',
+    language: 'اللغة',
+  },
+};
+

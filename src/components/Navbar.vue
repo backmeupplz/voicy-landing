@@ -23,7 +23,7 @@ import { i18n } from "../plugins/i18n";
 @Component
 export default class Navbar extends Vue {
   get locales() {
-    return [{ icon: "🇺🇸", code: "en" }, { icon: "🇷🇺", code: "ru" }];
+    return [{ icon: "🇸🇦", code: "ar" }, { icon: "🇺🇸", code: "en" }, { icon: "🇷🇺", code: "ru" }];
   }
   get currentLocale() {
     for (const locale of this.locales) {
@@ -35,6 +35,11 @@ export default class Navbar extends Vue {
   changeLanguage(locale: string) {
     i18n.locale = locale;
     store.setLanguage(locale);
+    if (locale == "ar") {
+      this.$vuetify.rtl = true
+    } else {
+      this.$vuetify.rtl = false
+    }
     document.title = i18n.t("title") as string;
   }
 }
