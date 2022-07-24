@@ -10,6 +10,7 @@ export interface State {
 }
 
 interface LocalizedError {
+  ar: string
   en: string
   ru: string
 }
