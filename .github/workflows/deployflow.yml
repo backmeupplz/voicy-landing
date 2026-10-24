@@ -1,10 +1,11 @@
-name: Build and deploy app
+name: Deploy site
 on:
   push:
     branches:
       - master
+  workflow_dispatch:
 jobs:
-  build-and-deploy-app:
+  deploy:
     permissions:
       pages: write
       id-token: write
@@ -12,30 +13,13 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      NODE_OPTIONS: '--max_old_space_size=4096'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - uses: c-hive/gha-yarn-cache@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          node-version: '16'
-      - name: Install modules
-        run: yarn
-        shell: bash
-      - name: Build code
-        run: yarn build
-        shell: bash
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'docs'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
