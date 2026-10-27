@@ -88,6 +88,31 @@ a {
   filter: brightness(1.08);
 }
 
+.faq {
+  width: 100%;
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+.faq h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.faq h3 {
+  margin: 1.5rem 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.faq p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.faq a {
+  text-decoration: underline;
+}
+
 footer {
   padding: 1.5rem 1rem;
   text-align: center;

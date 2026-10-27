@@ -32,11 +32,6 @@
      "description": "A Telegram bot that turns voice messages and audio files into text, in private chats and group chats.",
      "applicationCategory": "CommunicationApplication",
      "operatingSystem": "Telegram",
-     "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-     },
      "image": "https://voicybot.com/og.png",
      "author": {
       "@type": "Person",
@@ -59,6 +54,19 @@
       <h1>Voicy</h1>
       <p>Add <a href="https://t.me/voicybot">@voicybot</a> to a Telegram group chat and it replies to every voice message with its text, so everyone can read along instead of pressing play.</p>
       <a class="button" href="https://t.me/voicybot">Open in Telegram</a>
+      <section class="faq" aria-labelledby="faq">
+        <h2 id="faq">Questions</h2>
+        <h3>How do I turn Telegram voice messages into text?</h3>
+        <p>Send a voice message to <a href="https://t.me/voicybot">@voicybot</a> in a private chat, or add it to a group. It replies to each voice message with its text.</p>
+        <h3>How does it work in groups?</h3>
+        <p>A group can have Voicy turn every voice message into text, or only the ones someone replies to with /transcribe. /transcribe_all switches between the two, and /silent hides the status messages so only the text is posted.</p>
+        <h3>What can it transcribe?</h3>
+        <p>Voice messages and audio files in .ogg, .flac, .wav and .mp3, up to 100 MB. Speech recognition runs on Voicy's own computers with Whisper, an open-source model trained on about 100 languages.</p>
+        <h3>What does it cost?</h3>
+        <p>Speech recognition takes GPU time, so each chat is activated once with a donation, in Telegram Stars or by card: send /donate in the chat you want to activate. Donations are per chat, so a group needs its own. Subscribers of the <a href="https://t.me/golden_borodutch">@golden_borodutch</a> channel get 50 transcriptions for free.</p>
+        <h3>Is it open source?</h3>
+        <p>Yes. The code is on <a href="https://github.com/backmeupplz/voicy">GitHub</a> under the MIT license, along with the worker that runs the speech recognition.</p>
+      </section>
     </main>
     <footer>
       <a href="https://github.com/backmeupplz/voicy">Open source</a> · Stats at <a href="https://borodutch.com">borodutch.com</a>

@@ -1,8 +1,8 @@
 # Voicy
 
-> Voicy (@voicybot) is a free, open-source Telegram bot that turns voice messages and audio files (.ogg, .flac, .wav, .mp3, up to 100 MB) into text. Send it a voice message in a private chat, or add it to a group chat, where it either replies to every voice message with its text or waits until someone replies to a message with /transcribe.
+> Voicy (@voicybot) is an open-source Telegram bot that turns voice messages and audio files (.ogg, .flac, .wav, .mp3, up to 100 MB) into text. Send it a voice message in a private chat, or add it to a group chat, where it either replies to every voice message with its text or waits until someone replies to a message with /transcribe.
 
-The bot's interface speaks English, German, Spanish, Portuguese, Russian and Ukrainian (/language changes it). Voicy is made by Nikita Kolmogorov.
+Speech recognition runs on Voicy's own computers with Whisper, an open-source model trained on about 100 languages. Each chat is activated once with a donation, in Telegram Stars or by card (/donate in that chat), which pays for the GPU time; subscribers of the @golden_borodutch channel get 50 transcriptions for free. The bot's interface speaks English, German, Spanish, Portuguese, Russian and Ukrainian (/language changes it). Voicy is MIT-licensed and made by Nikita Kolmogorov.
 
 ## Links
 
