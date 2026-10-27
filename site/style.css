@@ -2,7 +2,10 @@
   --bg: #ffffff;
   --text: #1c1c1e;
   --muted: #6e6e73;
-  --accent: #2aabee;
+  /* Telegram blue for the logo; text and the button need a darker blue to read on white (4.7:1) */
+  --brand: #2aabee;
+  --accent: #0a7ab8;
+  --button: #0a7ab8;
   --accent-text: #ffffff;
   color-scheme: light dark;
 }
@@ -12,6 +15,7 @@
     --bg: #111214;
     --text: #f2f2f7;
     --muted: #98989f;
+    --accent: #2aabee;
   }
 }
 
@@ -47,7 +51,7 @@ main {
 }
 
 .logo rect {
-  fill: var(--accent);
+  fill: var(--brand);
 }
 
 .logo path {
@@ -74,7 +78,7 @@ a {
   display: inline-block;
   padding: 0.8rem 1.6rem;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--button);
   color: var(--accent-text);
   font-weight: 600;
   text-decoration: none;
