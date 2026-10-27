@@ -20,7 +20,130 @@
     <meta name="twitter:title" content="Voicy: voice messages to text in Telegram" />
     <meta name="twitter:description" content="Add @voicybot to a Telegram group and it turns every voice message into text, so nobody has to press play." />
     <meta name="twitter:image" content="https://voicybot.com/og.png" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="twitter:image:alt" content="Voicy turns Telegram voice messages into text" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #1c1c1e;
+        --muted: #6e6e73;
+        /* Telegram blue for the logo; text and the button need a darker blue to read on white (4.7:1) */
+        --brand: #2aabee;
+        --accent: #0a7ab8;
+        --button: #0a7ab8;
+        --accent-text: #ffffff;
+        color-scheme: light dark;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #111214;
+          --text: #f2f2f7;
+          --muted: #98989f;
+          --accent: #2aabee;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg);
+        color: var(--text);
+        font: 18px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+
+      .logo {
+        width: 72px;
+        height: 72px;
+      }
+
+      .logo rect {
+        fill: var(--brand);
+      }
+
+      .logo path {
+        stroke: #fff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+      }
+
+      h1 {
+        margin: 1rem 0 0.5rem;
+        font-size: 2.5rem;
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 0 0 2rem;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
+        border-radius: 999px;
+        background: var(--button);
+        color: var(--accent-text);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        filter: brightness(1.08);
+      }
+
+      .faq {
+        width: 100%;
+        margin-top: 3.5rem;
+        text-align: left;
+      }
+
+      .faq h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .faq h3 {
+        margin: 1.5rem 0 0.25rem;
+        font-size: 1.05rem;
+      }
+
+      .faq p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .faq a {
+        text-decoration: underline;
+      }
+
+      footer {
+        padding: 1.5rem 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+    </style>
     <script defer src="https://lumen.borodutch.com/l.js"></script>
     <script type="application/ld+json">
     {
