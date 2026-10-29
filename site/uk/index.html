@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voicy: голосові повідомлення в текст у Telegram</title>
+    <meta name="description" content="Додайте @voicybot до групи Telegram, і він перетворить кожне голосове повідомлення на текст, щоб нікому не доводилося натискати play." />
+    <link rel="canonical" href="https://voicybot.com/uk/" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232aabee'/%3E%3Cpath d='M8 13v6M12 10v12M16 7v18M20 10v12M24 13v6' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="alternate" hreflang="en" href="https://voicybot.com/" />
+    <link rel="alternate" hreflang="ru" href="https://voicybot.com/ru/" />
+    <link rel="alternate" hreflang="uk" href="https://voicybot.com/uk/" />
+    <link rel="alternate" hreflang="es" href="https://voicybot.com/es/" />
+    <link rel="alternate" hreflang="pt" href="https://voicybot.com/pt/" />
+    <link rel="alternate" hreflang="de" href="https://voicybot.com/de/" />
+    <link rel="alternate" hreflang="x-default" href="https://voicybot.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://voicybot.com/uk/" />
+    <meta property="og:site_name" content="Voicy" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:title" content="Voicy: голосові повідомлення в текст у Telegram" />
+    <meta property="og:description" content="Додайте @voicybot до групи Telegram, і він перетворить кожне голосове повідомлення на текст, щоб нікому не доводилося натискати play." />
+    <meta property="og:image" content="https://voicybot.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Voicy перетворює голосові повідомлення Telegram на текст" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Voicy: голосові повідомлення в текст у Telegram" />
+    <meta name="twitter:description" content="Додайте @voicybot до групи Telegram, і він перетворить кожне голосове повідомлення на текст, щоб нікому не доводилося натискати play." />
+    <meta name="twitter:image" content="https://voicybot.com/og.png" />
+    <meta name="twitter:image:alt" content="Voicy перетворює голосові повідомлення Telegram на текст" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #1c1c1e;
+        --muted: #6e6e73;
+        /* Telegram blue for the logo; text and the button need a darker blue to read on white (4.7:1) */
+        --brand: #2aabee;
+        --accent: #0a7ab8;
+        --button: #0a7ab8;
+        --accent-text: #ffffff;
+        color-scheme: light dark;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #111214;
+          --text: #f2f2f7;
+          --muted: #98989f;
+          --accent: #2aabee;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg);
+        color: var(--text);
+        font: 18px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+
+      .logo {
+        width: 72px;
+        height: 72px;
+      }
+
+      .logo rect {
+        fill: var(--brand);
+      }
+
+      .logo path {
+        stroke: #fff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+      }
+
+      h1 {
+        margin: 1rem 0 0.5rem;
+        font-size: 2.5rem;
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 0 0 2rem;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
+        border-radius: 999px;
+        background: var(--button);
+        color: var(--accent-text);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        filter: brightness(1.08);
+      }
+
+      .faq {
+        width: 100%;
+        margin-top: 3.5rem;
+        text-align: left;
+      }
+
+      .faq h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .faq h3 {
+        margin: 1.5rem 0 0.25rem;
+        font-size: 1.05rem;
+      }
+
+      .faq p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .faq a {
+        text-decoration: underline;
+      }
+
+      .langs {
+        margin-bottom: 0.75rem;
+      }
+
+      .langs a[aria-current] {
+        color: var(--text);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      footer {
+        padding: 1.5rem 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+    </style>
+    <script defer src="https://lumen.borodutch.com/l.js"></script>
+    <script type="application/ld+json">
+    {
+     "@context": "https://schema.org",
+     "@type": "SoftwareApplication",
+     "name": "Voicy",
+     "alternateName": "@voicybot",
+     "url": "https://voicybot.com/uk/",
+     "description": "Бот для Telegram, який перетворює голосові повідомлення й аудіофайли на текст в особистих і групових чатах.",
+     "applicationCategory": "CommunicationApplication",
+     "operatingSystem": "Telegram",
+     "image": "https://voicybot.com/og.png",
+     "author": {
+      "@type": "Person",
+      "name": "Nikita Kolmogorov",
+      "url": "https://borodutch.com"
+     },
+     "sameAs": [
+      "https://t.me/voicybot",
+      "https://github.com/backmeupplz/voicy"
+     ]
+    }
+    </script>
+  </head>
+  <body>
+    <main>
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="8" />
+        <path d="M8 13v6M12 10v12M16 7v18M20 10v12M24 13v6" />
+      </svg>
+      <h1>Voicy</h1>
+      <p>Додайте <a href="https://t.me/voicybot">@voicybot</a> до групового чату Telegram, і він відповість на кожне голосове повідомлення його текстом: усі зможуть прочитати, не натискаючи play.</p>
+      <a class="button" href="https://t.me/voicybot?start=vl1-uk-web">Відкрити в Telegram</a>
+      <section class="faq" aria-labelledby="faq">
+        <h2 id="faq">Запитання</h2>
+        <h3>Як перетворити голосові повідомлення Telegram на текст?</h3>
+        <p>Надішліть голосове повідомлення боту <a href="https://t.me/voicybot">@voicybot</a> в особистому чаті або додайте його до групи. Він відповість на кожне голосове повідомлення його текстом.</p>
+        <h3>Як це працює в групах?</h3>
+        <p>У групі Voicy може розшифровувати кожне голосове повідомлення або лише ті, на які хтось відповів командою /transcribe. Команда /transcribe_all перемикає ці режими, а /silent ховає службові повідомлення, і лишається тільки текст.</p>
+        <h3>Що він уміє розшифровувати?</h3>
+        <p>Голосові повідомлення й аудіофайли у форматах .ogg, .flac, .wav та .mp3 розміром до 100 МБ. Розпізнавання мовлення працює на власних серверах Voicy за допомогою Whisper — моделі з відкритим кодом, навченої приблизно на 100 мовах.</p>
+        <h3>Скільки це коштує?</h3>
+        <p>Розпізнавання мовлення потребує часу GPU, тому кожен чат один раз активується пожертвою в Telegram Stars або карткою: надішліть /donate у чаті, який хочете активувати. Пожертви роблять на кожен чат окремо, тож групі потрібна своя. Підписники каналу <a href="https://t.me/golden_borodutch">@golden_borodutch</a> отримують 50 розшифровок безкоштовно.</p>
+        <h3>Чи відкритий його код?</h3>
+        <p>Так. Код на <a href="https://github.com/backmeupplz/voicy">GitHub</a> за ліцензією MIT разом із воркером, що виконує розпізнавання мовлення.</p>
+      </section>
+    </main>
+    <footer>
+      <nav class="langs" aria-label="Мова"><a href="/" hreflang="en" lang="en">English</a> · <a href="/ru/" hreflang="ru" lang="ru">Русский</a> · <a href="/uk/" hreflang="uk" lang="uk" aria-current="page">Українська</a> · <a href="/es/" hreflang="es" lang="es">Español</a> · <a href="/pt/" hreflang="pt" lang="pt">Português</a> · <a href="/de/" hreflang="de" lang="de">Deutsch</a></nav>
+      <a href="https://github.com/backmeupplz/voicy">Відкритий код</a> · Статистика на <a href="https://borodutch.com">borodutch.com</a>
+    </footer>
+  </body>
+</html>

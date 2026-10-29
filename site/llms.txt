@@ -8,3 +8,4 @@ Speech recognition runs on Voicy's own computers with Whisper, an open-source mo
 
 - [Open @voicybot in Telegram](https://t.me/voicybot)
 - [Source code](https://github.com/backmeupplz/voicy)
+- Translations of this page: [Русский](https://voicybot.com/ru/), [Українська](https://voicybot.com/uk/), [Español](https://voicybot.com/es/), [Português](https://voicybot.com/pt/), [Deutsch](https://voicybot.com/de/)
