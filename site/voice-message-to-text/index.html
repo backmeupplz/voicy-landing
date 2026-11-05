@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>How to turn a Telegram voice message into text | Voicy</title>
+    <meta name="description" content="Send the voice message to @voicybot, or add it to a group and reply with /transcribe. Voicy answers with the text. Steps, accepted files and limits, checked against its source on 2026-11-05." />
+    <link rel="canonical" href="https://voicybot.com/voice-message-to-text/" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232aabee'/%3E%3Cpath d='M8 13v6M12 10v12M16 7v18M20 10v12M24 13v6' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://voicybot.com/voice-message-to-text/" />
+    <meta property="og:site_name" content="Voicy" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="How to turn a Telegram voice message into text" />
+    <meta property="og:description" content="Send the voice message to @voicybot, or add it to a group and reply with /transcribe. Voicy answers with the text. Steps, accepted files and limits, checked against its source on 2026-11-05." />
+    <meta property="og:image" content="https://voicybot.com/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Voicy turns Telegram voice messages into text" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to turn a Telegram voice message into text" />
+    <meta name="twitter:description" content="Send the voice message to @voicybot, or add it to a group and reply with /transcribe. Voicy answers with the text. Steps, accepted files and limits, checked against its source on 2026-11-05." />
+    <meta name="twitter:image" content="https://voicybot.com/og.png" />
+    <meta name="twitter:image:alt" content="Voicy turns Telegram voice messages into text" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #1c1c1e;
+        --muted: #6e6e73;
+        /* Telegram blue for the logo; text and the button need a darker blue to read on white (4.7:1) */
+        --brand: #2aabee;
+        --accent: #0a7ab8;
+        --button: #0a7ab8;
+        --accent-text: #ffffff;
+        color-scheme: light dark;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #111214;
+          --text: #f2f2f7;
+          --muted: #98989f;
+          --accent: #2aabee;
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg);
+        color: var(--text);
+        font: 18px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 34rem;
+        margin: 0 auto;
+        padding: 3rem 1rem;
+        text-align: center;
+      }
+
+      .logo {
+        width: 72px;
+        height: 72px;
+      }
+
+      .logo rect {
+        fill: var(--brand);
+      }
+
+      .logo path {
+        stroke: #fff;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+      }
+
+      h1 {
+        margin: 1rem 0 0.5rem;
+        font-size: 2.5rem;
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 0 0 2rem;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .button {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
+        border-radius: 999px;
+        background: var(--button);
+        color: var(--accent-text);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        filter: brightness(1.08);
+      }
+
+      .faq {
+        width: 100%;
+        margin-top: 3.5rem;
+        text-align: left;
+      }
+
+      .faq h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .faq h3 {
+        margin: 1.5rem 0 0.25rem;
+        font-size: 1.05rem;
+      }
+
+      .faq p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .faq a {
+        text-decoration: underline;
+      }
+
+      .langs {
+        margin-bottom: 0.75rem;
+      }
+
+      .langs a[aria-current] {
+        color: var(--text);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      footer {
+        padding: 1.5rem 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .doc {
+        justify-content: flex-start;
+        align-items: stretch;
+        max-width: 42rem;
+        text-align: left;
+      }
+
+      .doc h1 {
+        font-size: 2.1rem;
+        margin-top: 0;
+      }
+
+      .doc h2 {
+        margin: 2.5rem 0 0.5rem;
+        font-size: 1.5rem;
+      }
+
+      .doc h3 {
+        margin: 1.5rem 0 0.25rem;
+        font-size: 1.05rem;
+      }
+
+      .doc p,
+      .doc li {
+        margin: 0 0 1rem;
+      }
+
+      .doc ol,
+      .doc ul {
+        padding-left: 1.4rem;
+      }
+
+      .doc code,
+      .doc pre {
+        font: 0.9em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      .doc pre {
+        overflow-x: auto;
+        padding: 0.8rem 1rem;
+        border-radius: 8px;
+        background: rgba(127, 127, 127, 0.14);
+      }
+
+      .doc .button {
+        align-self: flex-start;
+      }
+
+      .meta {
+        color: var(--muted);
+      }
+
+      table {
+        width: 100%;
+        margin: 0 0 1.5rem;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 0.5rem 0.6rem;
+        border-bottom: 1px solid rgba(127, 127, 127, 0.35);
+        text-align: left;
+      }
+
+      @media (max-width: 720px) {
+        thead {
+          position: absolute;
+          left: -9999px;
+        }
+
+        tr {
+          display: block;
+          padding: 0.6rem 0;
+          border-bottom: 1px solid rgba(127, 127, 127, 0.35);
+        }
+
+        td {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 0.2rem 0;
+          border: 0;
+        }
+
+        td::before {
+          content: attr(data-label);
+          color: var(--muted);
+        }
+
+        td:first-child {
+          font-weight: 600;
+        }
+
+        td:first-child::before {
+          content: '';
+        }
+      }
+    </style>
+    <script defer src="https://lumen.borodutch.com/l.js"></script>
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "TechArticle",
+ "headline": "How to turn a Telegram voice message into text",
+ "description": "Send the voice message to @voicybot, or add it to a group and reply with /transcribe. Voicy answers with the text. Steps, accepted files and limits, checked against its source on 2026-11-05.",
+ "url": "https://voicybot.com/voice-message-to-text/",
+ "image": "https://voicybot.com/og.png",
+ "datePublished": "2026-11-05",
+ "dateModified": "2026-11-05",
+ "inLanguage": "en",
+ "author": {
+  "@type": "Person",
+  "name": "Nikita Kolmogorov",
+  "url": "https://borodutch.com"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "Voicy",
+  "url": "https://voicybot.com/"
+ },
+ "mainEntityOfPage": "https://voicybot.com/voice-message-to-text/"
+}
+    </script>
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Can I turn a Telegram voice message into text without installing anything?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Voicy is a Telegram bot, so there is nothing to install: open @voicybot, or reply to the voice message in your own chat with @voicybot in the message, and it answers with the text."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I turn voice messages in a group chat into text?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Add @voicybot to the group. It can turn every voice message into text, or only the ones someone replies to with /transcribe. /transcribe_all switches between the two."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Which files can Voicy turn into text?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Voice messages, round video messages, audio files and videos, and documents whose name ends in a common audio or video extension such as .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4 or .mov. Anything over 100 MB is refused."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does Voicy cost anything?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Each chat is activated once with a donation, in Telegram Stars or by card, because the speech recognition runs on GPUs we pay for. Send /donate in the chat you want to activate; a group needs its own. Subscribers of the @golden_borodutch channel get 50 transcriptions for free."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Is the text accurate?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Voicy uses Whisper, an open-source model trained on about 100 languages, and the status message says when the text is still a draft. We haven't published an accuracy benchmark, so check names and numbers against the audio."
+   }
+  }
+ ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Voicy",
+   "item": "https://voicybot.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "How to turn a Telegram voice message into text",
+   "item": "https://voicybot.com/voice-message-to-text/"
+  }
+ ]
+}
+    </script>
+  </head>
+  <body>
+    <main class="doc">
+      <p class="meta"><a href="/">Voicy</a> / Guide</p>
+      <h1>How to turn a Telegram voice message into text</h1>
+      <p>Send the voice message to <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram, or add the bot to a group and reply to the voice message with <code>/transcribe</code>. Voicy answers with the text a few moments later. There is nothing to install, and it also works on round video messages, audio files and videos.</p>
+      <a class="button" href="https://t.me/voicybot?start=vl1-en-web">Open in Telegram</a>
+
+      <h2 id="private">In a private chat</h2>
+      <ol>
+        <li>Open <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram and press Start.</li>
+        <li>Record or forward a voice message to it, or send it an audio file.</li>
+        <li>Voicy replies with a status message that says it is turning the audio into text, shows a draft while it works, and then posts the final text. Text longer than 4,000 characters arrives as several messages.</li>
+        <li>If the chat has not been activated yet, Voicy answers with the donation options instead. Send <code>/donate</code> to see them.</li>
+      </ol>
+
+      <h2 id="group">In a group chat</h2>
+      <ol>
+        <li>Add @voicybot to the group.</li>
+        <li>Choose how it behaves: <code>/transcribe_all</code> turns every new voice message into text, and sending it again switches that off.</li>
+        <li>With that off, reply to any voice message, video note or supported audio file with <code>/transcribe</code> and Voicy answers that one message only.</li>
+        <li>Add <code>/silent</code> to hide the status messages so the chat only sees the final text, and <code>/lock</code> to let only group admins use the commands.</li>
+      </ol>
+      <p>Donations are per chat, so a group is activated by sending <code>/donate</code> inside that group.</p>
+
+      <h2 id="mention">In a chat Voicy is not a member of</h2>
+      <p>Reply to a voice message, video note or supported audio or video file with <code>@voicybot</code>. Voicy answers in that reply through Telegram's Guest Mode, and when the text is longer than one reply it says so and suggests adding Voicy to the chat or messaging it directly for the full text.</p>
+
+      <h2 id="files">What Voicy accepts</h2>
+      <table>
+        <thead>
+          <tr><th>Kind</th><th>Accepted</th><th>Switched off by /files</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Voice message</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">No</td></tr>
+          <tr><td>Video note (circle)</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">No</td></tr>
+          <tr><td>Audio file</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">Yes</td></tr>
+          <tr><td>Video</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">Yes</td></tr>
+          <tr><td>Document (.ogg, .mp3, .m4a, .opus, .mp4 and similar)</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">Yes</td></tr>
+          <tr><td>Document (.pdf, .txt, .zip)</td><td data-label="Accepted">No</td><td data-label="Switched off by /files">Not applicable</td></tr>
+          <tr><td>Photo or text</td><td data-label="Accepted">No</td><td data-label="Switched off by /files">Not applicable</td></tr>
+        </tbody>
+      </table>
+      <p>The accepted extensions are .3gp, .3gpp, .aac, .aif, .aifc, .aiff, .amr, .avi, .flac, .m4a, .m4b, .m4v, .mka, .mkv, .mov, .mp3, .mp4, .mpeg, .mpg, .oga, .ogg, .opus, .wav, .wave, .weba, .webm and .wma. A document without one of them is still accepted when Telegram reports an audio or video type for it. <code>/files</code> switches audio files, videos and documents off for a chat, which keeps a group that shares a lot of music from being transcribed; voice messages and video notes are not affected.</p>
+
+      <h2 id="limits">Limits worth knowing</h2>
+      <ul>
+        <li><strong>File size:</strong> up to 100 MB (104,857,600 bytes). A file of 104,857,601 bytes is refused with a message saying Voicy does not support files over 100 MB.</li>
+        <li><strong>Queue:</strong> a chat that has not been activated can have 10 messages waiting at a time; the eleventh gets a "too many audio messages waiting" reply until the first ones finish.</li>
+        <li><strong>Repeats:</strong> when the same Telegram file is transcribed again within 10 days, Voicy reuses the earlier text instead of running it again.</li>
+        <li><strong>Language:</strong> the bot's menus speak English, German, Spanish, Portuguese, Russian and Ukrainian (<code>/language</code>). The speech itself is recognised by Whisper, which detects the spoken language unless a job names one.</li>
+      </ul>
+
+      <h2 id="cost">What it costs</h2>
+      <p>Voicy runs speech recognition on its own GPU computers, so each chat is activated once with a donation: Telegram Stars tiers, a card through Stripe, or any amount of at least $6.99 by sending, for example, <code>/donate 15.69</code>. Donations are per chat, not per person. Subscribers of the <a href="https://t.me/golden_borodutch">@golden_borodutch</a> channel get 50 transcriptions for free before they need to activate a chat.</p>
+
+      <h2 id="tested">What was checked, and how</h2>
+      <p class="meta">Checked on 2026-11-05 against the bot's source at commit ec9d855 (the main branch that day) with Node.js 22.23.4.</p>
+      <p>We read the handlers behind each step above, the English texts the bot sends, and the checks for file type and size. We then ran the bot's own file-type check and size check on 15 sample messages, and the table and the 100 MB line above are what they printed. For example, a message whose document is named <code>x.OGG</code> was accepted, <code>x.pdf</code>, <code>x.txt</code> and <code>a.zip</code> were ignored, and 104,857,600 bytes passed while 104,857,601 did not. We did not send a voice message through the live bot from this machine, so the timing of a real transcription and its accuracy are not measured here; the <a href="https://github.com/backmeupplz/voicy">source is on GitHub</a> if you want to read the same code.</p>
+
+      <h2 id="faq">Questions</h2>
+      <h3>Can I turn a Telegram voice message into text without installing anything?</h3>
+      <p>Yes. Voicy is a Telegram bot, so there is nothing to install: open @voicybot, or reply to the voice message in your own chat with @voicybot in the message, and it answers with the text.</p>
+      <h3>How do I turn voice messages in a group chat into text?</h3>
+      <p>Add @voicybot to the group. It can turn every voice message into text, or only the ones someone replies to with /transcribe. /transcribe_all switches between the two.</p>
+      <h3>Which files can Voicy turn into text?</h3>
+      <p>Voice messages, round video messages, audio files and videos, and documents whose name ends in a common audio or video extension such as .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4 or .mov. Anything over 100 MB is refused.</p>
+      <h3>Does Voicy cost anything?</h3>
+      <p>Each chat is activated once with a donation, in Telegram Stars or by card, because the speech recognition runs on GPUs we pay for. Send /donate in the chat you want to activate; a group needs its own. Subscribers of the @golden_borodutch channel get 50 transcriptions for free.</p>
+      <h3>Is the text accurate?</h3>
+      <p>Voicy uses Whisper, an open-source model trained on about 100 languages, and the status message says when the text is still a draft. We haven't published an accuracy benchmark, so check names and numbers against the audio.</p>
+    </main>
+    <footer>
+      <a href="/">Voicy home</a> · <a href="https://github.com/backmeupplz/voicy">Open source</a> · Stats at <a href="https://borodutch.com">borodutch.com</a>
+    </footer>
+  </body>
+</html>

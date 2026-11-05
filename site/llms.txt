@@ -7,5 +7,6 @@ Speech recognition runs on Voicy's own computers with Whisper, an open-source mo
 ## Links
 
 - [Open @voicybot in Telegram](https://t.me/voicybot)
+- [How to turn a Telegram voice message into text](https://voicybot.com/voice-message-to-text/): private chats, groups, accepted files, limits and cost
 - [Source code](https://github.com/backmeupplz/voicy)
 - Translations of this page: [Русский](https://voicybot.com/ru/), [Українська](https://voicybot.com/uk/), [Español](https://voicybot.com/es/), [Português](https://voicybot.com/pt/), [Deutsch](https://voicybot.com/de/)
