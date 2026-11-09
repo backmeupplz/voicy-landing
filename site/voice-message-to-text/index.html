@@ -264,7 +264,7 @@
  "url": "https://voicybot.com/voice-message-to-text/",
  "image": "https://voicybot.com/og.png",
  "datePublished": "2026-11-05",
- "dateModified": "2026-11-05",
+ "dateModified": "2026-11-09",
  "inLanguage": "en",
  "author": {
   "@type": "Person",
@@ -305,7 +305,7 @@
    "name": "Which files can Voicy turn into text?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Voice messages, round video messages, audio files and videos, and documents whose name ends in a common audio or video extension such as .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4 or .mov. Anything over 100 MB is refused."
+    "text": "Voice messages, round video messages, audio files and videos, and documents whose name ends in a common audio or video extension such as .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4 or .mov. Anything over 100 MB is refused. Audio files, videos and documents are off in a new chat until someone sends /files there, while voice messages and round video messages don't need it."
    }
   },
   {
@@ -352,14 +352,14 @@
     <main class="doc">
       <p class="meta"><a href="/">Voicy</a> / Guide</p>
       <h1>How to turn a Telegram voice message into text</h1>
-      <p>Send the voice message to <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram, or add the bot to a group and reply to the voice message with <code>/transcribe</code>. Voicy answers with the text a few moments later. There is nothing to install, and it also works on round video messages, audio files and videos.</p>
+      <p>Send the voice message to <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram, or add the bot to a group and reply to the voice message with <code>/transcribe</code>. Voicy answers with the text a few moments later. There is nothing to install, and it also works on round video messages, and on audio files and videos once <code>/files</code> turns them on in that chat.</p>
       <p>As of November 9, 2026: Voicy is a separate bot, so you send the message to it, and each chat is activated once with a donation, because the speech recognition runs on GPUs we pay for. Until then Voicy answers with the donation options instead of the text. Telegram Premium has transcription built in, which needs no bot but a paid Telegram subscription.</p>
       <a class="button" href="https://t.me/voicybot?start=vl1-en-web">Open in Telegram</a>
 
       <h2 id="private">In a private chat</h2>
       <ol>
         <li>Open <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram and press Start.</li>
-        <li>Record or forward a voice message to it, or send it an audio file.</li>
+        <li>Record or forward a voice message to it. To send it an audio file or a video instead, send <code>/files</code> first, because files are off in a new chat and Voicy ignores them until then.</li>
         <li>Voicy replies with a status message that says it is turning the audio into text, shows a draft while it works, and then posts the final text. Text longer than 4,000 characters arrives as several messages.</li>
         <li>If the chat has not been activated yet, Voicy answers with the donation options instead. Send <code>/donate</code> to see them.</li>
       </ol>
@@ -379,19 +379,19 @@
       <h2 id="files">What Voicy accepts</h2>
       <table>
         <thead>
-          <tr><th>Kind</th><th>Accepted</th><th>Switched off by /files</th></tr>
+          <tr><th>Kind</th><th>Accepted</th><th>Needs /files first</th></tr>
         </thead>
         <tbody>
-          <tr><td>Voice message</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">No</td></tr>
-          <tr><td>Video note (circle)</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">No</td></tr>
-          <tr><td>Audio file</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">Yes</td></tr>
-          <tr><td>Video</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">Yes</td></tr>
-          <tr><td>Document (.ogg, .mp3, .m4a, .opus, .mp4 and similar)</td><td data-label="Accepted">Yes</td><td data-label="Switched off by /files">Yes</td></tr>
-          <tr><td>Document (.pdf, .txt, .zip)</td><td data-label="Accepted">No</td><td data-label="Switched off by /files">Not applicable</td></tr>
-          <tr><td>Photo or text</td><td data-label="Accepted">No</td><td data-label="Switched off by /files">Not applicable</td></tr>
+          <tr><td>Voice message</td><td data-label="Accepted">Yes</td><td data-label="Needs /files first">No</td></tr>
+          <tr><td>Video note (circle)</td><td data-label="Accepted">Yes</td><td data-label="Needs /files first">No</td></tr>
+          <tr><td>Audio file</td><td data-label="Accepted">Yes</td><td data-label="Needs /files first">Yes</td></tr>
+          <tr><td>Video</td><td data-label="Accepted">Yes</td><td data-label="Needs /files first">Yes</td></tr>
+          <tr><td>Document (.ogg, .mp3, .m4a, .opus, .mp4 and similar)</td><td data-label="Accepted">Yes</td><td data-label="Needs /files first">Yes</td></tr>
+          <tr><td>Document (.pdf, .txt, .zip)</td><td data-label="Accepted">No</td><td data-label="Needs /files first">Not applicable</td></tr>
+          <tr><td>Photo or text</td><td data-label="Accepted">No</td><td data-label="Needs /files first">Not applicable</td></tr>
         </tbody>
       </table>
-      <p>The accepted extensions are .3gp, .3gpp, .aac, .aif, .aifc, .aiff, .amr, .avi, .flac, .m4a, .m4b, .m4v, .mka, .mkv, .mov, .mp3, .mp4, .mpeg, .mpg, .oga, .ogg, .opus, .wav, .wave, .weba, .webm and .wma. A document without one of them is still accepted when Telegram reports an audio or video type for it. <code>/files</code> switches audio files, videos and documents off for a chat, which keeps a group that shares a lot of music from being transcribed; voice messages and video notes are not affected.</p>
+      <p>The accepted extensions are .3gp, .3gpp, .aac, .aif, .aifc, .aiff, .amr, .avi, .flac, .m4a, .m4b, .m4v, .mka, .mkv, .mov, .mp3, .mp4, .mpeg, .mpg, .oga, .ogg, .opus, .wav, .wave, .weba, .webm and .wma. A document without one of them is still accepted when Telegram reports an audio or video type for it. Audio files, videos and documents are off in a new chat, which keeps a group that shares a lot of music from being transcribed: Voicy ignores them without a reply until someone sends <code>/files</code> in that chat, and sending <code>/files</code> again switches them off. Voice messages and video notes are not affected, and replying to a supported file with <code>/transcribe</code> or <code>@voicybot</code> works either way.</p>
 
       <h2 id="limits">Limits worth knowing</h2>
       <ul>
@@ -406,7 +406,7 @@
 
       <h2 id="tested">What was checked, and how</h2>
       <p class="meta">Checked on 2026-11-05 against the bot's source at commit ec9d855 (the main branch that day) with Node.js 22.23.4.</p>
-      <p>We read the handlers behind each step above, the English texts the bot sends, and the checks for file type and size. We then ran the bot's own file-type check and size check on 15 sample messages, and the table and the 100 MB line above are what they printed. For example, a message whose document is named <code>x.OGG</code> was accepted, <code>x.pdf</code>, <code>x.txt</code> and <code>a.zip</code> were ignored, and 104,857,600 bytes passed while 104,857,601 did not. We did not send a voice message through the live bot from this machine, so the timing of a real transcription and its accuracy are not measured here; the <a href="https://github.com/backmeupplz/voicy">source is on GitHub</a> if you want to read the same code.</p>
+      <p>We read the handlers behind each step above, the English texts the bot sends, and the checks for file type and size. We then ran the bot's own file-type check and size check on 15 sample messages, and the table and the 100 MB line above are what they printed. For example, a message whose document is named <code>x.OGG</code> was accepted, <code>x.pdf</code>, <code>x.txt</code> and <code>a.zip</code> were ignored, and 104,857,600 bytes passed while 104,857,601 did not. On 2026-11-09 we checked the <code>/files</code> setting again against commit f68729c, the version the live bot runs: a new chat starts with files switched off. We did not send a voice message through the live bot from this machine, so the timing of a real transcription and its accuracy are not measured here; the <a href="https://github.com/backmeupplz/voicy">source is on GitHub</a> if you want to read the same code.</p>
 
       <h2 id="faq">Questions</h2>
       <h3>Can I turn a Telegram voice message into text without installing anything?</h3>
@@ -414,7 +414,7 @@
       <h3>How do I turn voice messages in a group chat into text?</h3>
       <p>Add @voicybot to the group. It can turn every voice message into text, or only the ones someone replies to with /transcribe. /transcribe_all switches between the two.</p>
       <h3>Which files can Voicy turn into text?</h3>
-      <p>Voice messages, round video messages, audio files and videos, and documents whose name ends in a common audio or video extension such as .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4 or .mov. Anything over 100 MB is refused.</p>
+      <p>Voice messages, round video messages, audio files and videos, and documents whose name ends in a common audio or video extension such as .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4 or .mov. Anything over 100 MB is refused. Audio files, videos and documents are off in a new chat until someone sends /files there, while voice messages and round video messages don't need it.</p>
       <h3>Does Voicy cost anything?</h3>
       <p>Each chat is activated once with a donation, in Telegram Stars or by card, because the speech recognition runs on GPUs we pay for. Send /donate in the chat you want to activate; a group needs its own. Subscribers of the @golden_borodutch channel get 50 transcriptions for free.</p>
       <h3>Is the text accurate?</h3>
