@@ -194,20 +194,20 @@
         <path d="M8 13v6M12 10v12M16 7v18M20 10v12M24 13v6" />
       </svg>
       <h1>Voicy</h1>
-      <p>Add <a href="https://t.me/voicybot">@voicybot</a> to a Telegram group chat and it replies to every voice message with its text, so everyone can read along instead of pressing play.</p>
+      <p>Drop <a href="https://t.me/voicybot">@voicybot</a> into a Telegram group and it replies to every voice message with text, so nobody has to stop and press play.</p>
       <a class="button" href="https://t.me/voicybot?start=vl1-en-web">Open in Telegram</a>
       <section class="faq" aria-labelledby="faq">
         <h2 id="faq">Questions</h2>
         <h3>How do I turn Telegram voice messages into text?</h3>
-        <p>Send a voice message to <a href="https://t.me/voicybot">@voicybot</a> in a private chat, or add it to a group. It replies to each voice message with its text. The <a href="/voice-message-to-text/">step-by-step guide</a> covers private chats, groups and the files it accepts.</p>
+        <p>Forward or send a voice message to <a href="https://t.me/voicybot">@voicybot</a> in a private chat, or add the bot to a group, and it replies with the transcript. The <a href="/voice-message-to-text/">step-by-step guide</a> covers private chats, group setup, and supported audio files.</p>
         <h3>How does it work in groups?</h3>
-        <p>A group can have Voicy turn every voice message into text, or only the ones someone replies to with /transcribe. /transcribe_all switches between the two, and /silent hides the status messages so only the text is posted.</p>
+        <p>In a group, Voicy can either transcribe every voice message automatically or wait until someone replies with /transcribe. Run /transcribe_all to switch between those two modes, and /silent if you only want the transcript without status replies.</p>
         <h3>What can it transcribe?</h3>
-        <p>Voice messages and audio files in .ogg, .flac, .wav and .mp3, up to 100 MB. Audio files are off in a new chat until someone sends /files there, while voice messages don't need it. Speech recognition runs on Voicy's own computers with Whisper, an open-source model trained on about 100 languages.</p>
+        <p>Voice messages plus .ogg, .flac, .wav, and .mp3 audio files up to 100 MB. Voice messages work right away; for audio files, someone needs to send /files in that chat first. Everything runs on our own servers using Whisper, an open-source speech model covering roughly 100 languages.</p>
         <h3>What does it cost?</h3>
-        <p>Speech recognition takes GPU time, so each chat is activated once with a donation, in Telegram Stars or by card: send /donate in the chat you want to activate. Donations are per chat, so a group needs its own. Subscribers of the <a href="https://t.me/golden_borodutch">@golden_borodutch</a> channel get 50 transcriptions for free.</p>
+        <p>Running Whisper on GPUs costs money, so each chat activates with a one-time donation via Telegram Stars or card. Send /donate in the chat you want to turn on (donations apply per chat, so each group activates separately). Subscribers to <a href="https://t.me/golden_borodutch">@golden_borodutch</a> get 50 free transcriptions.</p>
         <h3>Is it open source?</h3>
-        <p>Yes. The code is on <a href="https://github.com/backmeupplz/voicy">GitHub</a> under the MIT license, along with the worker that runs the speech recognition.</p>
+        <p>Yes. Both the bot and the speech-recognition worker are MIT-licensed on <a href="https://github.com/backmeupplz/voicy">GitHub</a>.</p>
       </section>
     </main>
     <footer>
