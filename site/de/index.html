@@ -193,20 +193,20 @@
         <path d="M8 13v6M12 10v12M16 7v18M20 10v12M24 13v6" />
       </svg>
       <h1>Voicy</h1>
-      <p>Füge <a href="https://t.me/voicybot">@voicybot</a> zu einer Telegram-Gruppe hinzu und er antwortet auf jede Sprachnachricht mit ihrem Text, damit alle mitlesen können, statt auf Play zu drücken.</p>
+      <p>Füge <a href="https://t.me/voicybot">@voicybot</a> zu einer Telegram-Gruppe hinzu und er antwortet auf jede Sprachnachricht mit Text, damit niemand anhalten und auf Play drücken muss.</p>
       <a class="button" href="https://t.me/voicybot?start=vl1-de-web">In Telegram öffnen</a>
       <section class="faq" aria-labelledby="faq">
         <h2 id="faq">Fragen</h2>
         <h3>Wie wandle ich Telegram-Sprachnachrichten in Text um?</h3>
-        <p>Schicke <a href="https://t.me/voicybot">@voicybot</a> eine Sprachnachricht im privaten Chat oder füge ihn zu einer Gruppe hinzu. Er antwortet auf jede Sprachnachricht mit ihrem Text.</p>
+        <p>Leite eine Sprachnachricht an <a href="https://t.me/voicybot">@voicybot</a> im privaten Chat weiter, sende sie direkt oder füge den Bot zu einer Gruppe hinzu, und er antwortet mit dem Transkript. Die <a href="/voice-message-to-text/">Schritt-für-Schritt-Anleitung</a> (auf Englisch) erklärt private Chats, Gruppeneinstellungen und unterstützte Audiodateien.</p>
         <h3>Wie funktioniert es in Gruppen?</h3>
-        <p>In einer Gruppe kann Voicy jede Sprachnachricht in Text umwandeln oder nur die, auf die jemand mit /transcribe antwortet. Mit /transcribe_all wechselst du zwischen beidem, und /silent blendet die Statusmeldungen aus, sodass nur der Text erscheint.</p>
+        <p>In einer Gruppe kann Voicy entweder jede Sprachnachricht automatisch transkribieren oder warten, bis jemand mit /transcribe antwortet. Mit /transcribe_all wechselst du zwischen diesen beiden Modi, und mit /silent bekommst du nur das Transkript ohne Statusmeldungen.</p>
         <h3>Was kann er transkribieren?</h3>
-        <p>Sprachnachrichten und Audiodateien als .ogg, .flac, .wav und .mp3 bis 100 MB. Audiodateien sind in einem neuen Chat ausgeschaltet, bis jemand dort /files sendet, während Sprachnachrichten das nicht brauchen. Die Spracherkennung läuft auf Voicys eigenen Rechnern mit Whisper, einem Open-Source-Modell, das auf rund 100 Sprachen trainiert wurde.</p>
+        <p>Sprachnachrichten sowie .ogg-, .flac-, .wav- und .mp3-Audiodateien bis 100 MB. Sprachnachrichten funktionieren sofort; für Audiodateien muss zuerst jemand /files in diesem Chat senden. Alles läuft auf unseren eigenen Servern mit Whisper, einem Open-Source-Sprachmodell für rund 100 Sprachen.</p>
         <h3>Was kostet es?</h3>
-        <p>Die Spracherkennung braucht GPU-Zeit, deshalb wird jeder Chat einmalig mit einer Spende aktiviert, in Telegram Stars oder per Karte: Sende /donate in dem Chat, den du aktivieren willst. Spenden gelten pro Chat, eine Gruppe braucht also ihre eigene. Abonnenten des Kanals <a href="https://t.me/golden_borodutch">@golden_borodutch</a> erhalten 50 Transkriptionen kostenlos.</p>
+        <p>Whisper auf GPUs zu betreiben kostet Geld, deshalb wird jeder Chat mit einer einmaligen Spende über Telegram Stars oder Karte aktiviert. Sende /donate in dem Chat, den du freischalten willst (Spenden gelten pro Chat, jede Gruppe wird also einzeln aktiviert). Abonnenten von <a href="https://t.me/golden_borodutch">@golden_borodutch</a> erhalten 50 kostenlose Transkriptionen.</p>
         <h3>Ist es Open Source?</h3>
-        <p>Ja. Der Code liegt auf <a href="https://github.com/backmeupplz/voicy">GitHub</a> unter der MIT-Lizenz, zusammen mit dem Worker, der die Spracherkennung ausführt.</p>
+        <p>Ja. Sowohl der Bot als auch der Spracherkennungs-Worker stehen unter der MIT-Lizenz auf <a href="https://github.com/backmeupplz/voicy">GitHub</a>.</p>
       </section>
     </main>
     <footer>
