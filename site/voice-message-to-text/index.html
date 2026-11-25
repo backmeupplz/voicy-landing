@@ -352,29 +352,29 @@
     <main class="doc">
       <p class="meta"><a href="/">Voicy</a> / Guide</p>
       <h1>How to turn a Telegram voice message into text</h1>
-      <p>Send the voice message to <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram, or add the bot to a group and reply to the voice message with <code>/transcribe</code>. Voicy answers with the text a few moments later. There is nothing to install, and it also works on round video messages, and on audio files and videos once <code>/files</code> turns them on in that chat.</p>
-      <p>As of November 9, 2026: Voicy is a separate bot, so you send the message to it, and each chat is activated once with a donation, because the speech recognition runs on GPUs we pay for. Until then Voicy answers with the donation options instead of the text. Telegram Premium has transcription built in, which needs no bot but a paid Telegram subscription.</p>
+      <p>Forward the voice message to <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram, or drop the bot into a group and reply with <code>/transcribe</code>. Voicy sends back the transcript moments later. There's nothing to install, and it handles round video notes too, plus audio and video files once you turn them on with <code>/files</code>.</p>
+      <p>Checked on November 9, 2026: Voicy runs speech recognition on GPUs we pay for, so you activate each chat once with a donation before it transcribes. Until then it replies with donation options. Telegram Premium builds transcription right into the app if you already pay for that subscription.</p>
       <a class="button" href="https://t.me/voicybot?start=vl1-en-web">Open in Telegram</a>
 
       <h2 id="private">In a private chat</h2>
       <ol>
-        <li>Open <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram and press Start.</li>
-        <li>Record or forward a voice message to it. To send it an audio file or a video instead, send <code>/files</code> first, because files are off in a new chat and Voicy ignores them until then.</li>
-        <li>Voicy replies with a status message that says it is turning the audio into text, shows a draft while it works, and then posts the final text. Text longer than 4,000 characters arrives as several messages.</li>
-        <li>If the chat has not been activated yet, Voicy answers with the donation options instead. Send <code>/donate</code> to see them.</li>
+        <li>Open <a href="https://t.me/voicybot?start=vl1-en-web">@voicybot</a> in Telegram and tap Start.</li>
+        <li>Record or forward a voice message. If you want to transcribe an audio or video file instead, run <code>/files</code> first; new chats start with files switched off so Voicy ignores them until you flip it on.</li>
+        <li>Voicy posts a status line, streams a draft while it processes, and replaces it with the final transcript. Anything past 4,000 characters splits across multiple messages.</li>
+        <li>If the chat isn't activated yet, Voicy replies with donation options instead. Run <code>/donate</code> to pull them up anytime.</li>
       </ol>
 
       <h2 id="group">In a group chat</h2>
       <ol>
-        <li>Add @voicybot to the group.</li>
-        <li>Choose how it behaves: <code>/transcribe_all</code> turns every new voice message into text, and sending it again switches that off.</li>
-        <li>With that off, reply to any voice message, video note or supported audio file with <code>/transcribe</code> and Voicy answers that one message only.</li>
-        <li>Add <code>/silent</code> to hide the status messages so the chat only sees the final text, and <code>/lock</code> to let only group admins use the commands.</li>
+        <li>Add @voicybot to your group.</li>
+        <li>Pick a mode: <code>/transcribe_all</code> transcribes every new voice message automatically, and running it again switches auto-mode back off.</li>
+        <li>With auto-mode off, reply to any voice message, video note, or supported audio file with <code>/transcribe</code> to transcribe just that message.</li>
+        <li>Use <code>/silent</code> to skip status messages and only post the finished text, and <code>/lock</code> to restrict commands to group admins.</li>
       </ol>
-      <p>Donations are per chat, so a group is activated by sending <code>/donate</code> inside that group.</p>
+      <p>Activations are per chat, so run <code>/donate</code> inside the group to activate it there.</p>
 
       <h2 id="mention">In a chat Voicy is not a member of</h2>
-      <p>Reply to a voice message, video note or supported audio or video file with <code>@voicybot</code>. Voicy answers in that reply through Telegram's Guest Mode, and when the text is longer than one reply it says so and suggests adding Voicy to the chat or messaging it directly for the full text.</p>
+      <p>Reply to a voice message, video note, or supported audio or video file with <code>@voicybot</code>. Voicy responds inline through Telegram's Guest Mode. If the transcript won't fit in a single reply, it tells you to add the bot to the chat or message it directly for the full text.</p>
 
       <h2 id="files">What Voicy accepts</h2>
       <table>
@@ -391,34 +391,34 @@
           <tr><td>Photo or text</td><td data-label="Accepted">No</td><td data-label="Needs /files first">Not applicable</td></tr>
         </tbody>
       </table>
-      <p>The accepted extensions are .3gp, .3gpp, .aac, .aif, .aifc, .aiff, .amr, .avi, .flac, .m4a, .m4b, .m4v, .mka, .mkv, .mov, .mp3, .mp4, .mpeg, .mpg, .oga, .ogg, .opus, .wav, .wave, .weba, .webm and .wma. A document without one of them is still accepted when Telegram reports an audio or video type for it. Audio files, videos and documents are off in a new chat, which keeps a group that shares a lot of music from being transcribed: Voicy ignores them without a reply until someone sends <code>/files</code> in that chat, and sending <code>/files</code> again switches them off. Voice messages and video notes are not affected, and replying to a supported file with <code>/transcribe</code> or <code>@voicybot</code> works either way.</p>
+      <p>Accepted file extensions: .3gp, .3gpp, .aac, .aif, .aifc, .aiff, .amr, .avi, .flac, .m4a, .m4b, .m4v, .mka, .mkv, .mov, .mp3, .mp4, .mpeg, .mpg, .oga, .ogg, .opus, .wav, .wave, .weba, .webm, and .wma. A document without one of those extensions still goes through if Telegram tags it with an audio or video MIME type. New chats leave files turned off so music-heavy groups don't get spammed with transcripts: Voicy stays quiet on files until someone runs <code>/files</code>, and running <code>/files</code> again turns them back off. Voice messages and video notes always work, and replying directly to a supported file with <code>/transcribe</code> or <code>@voicybot</code> transcribes it either way.</p>
 
       <h2 id="limits">Limits worth knowing</h2>
       <ul>
-        <li><strong>File size:</strong> up to 100 MB (104,857,600 bytes). A file of 104,857,601 bytes is refused with a message saying Voicy does not support files over 100 MB.</li>
-        <li><strong>Queue:</strong> a chat that has not been activated can have 10 messages waiting at a time; the eleventh gets a "too many audio messages waiting" reply until the first ones finish.</li>
-        <li><strong>Repeats:</strong> when the same Telegram file is transcribed again within 10 days, Voicy reuses the earlier text instead of running it again.</li>
-        <li><strong>Language:</strong> the bot's menus speak English, German, Spanish, Portuguese, Russian and Ukrainian (<code>/language</code>). The speech itself is recognised by Whisper, which detects the spoken language unless a job names one.</li>
+        <li><strong>File size:</strong> up to 100 MB (104,857,600 bytes). At 104,857,601 bytes Voicy rejects it and tells you files over 100 MB aren't supported.</li>
+        <li><strong>Queue:</strong> an unactivated chat can queue up to 10 messages at once; the eleventh gets a "too many audio messages waiting" reply until earlier ones clear.</li>
+        <li><strong>Repeats:</strong> resend the same Telegram file within 10 days and Voicy returns the cached transcript instead of running Whisper again.</li>
+        <li><strong>Language:</strong> menus come in English, German, Spanish, Portuguese, Russian, and Ukrainian (<code>/language</code>). Whisper auto-detects the spoken language unless you specify one.</li>
       </ul>
 
       <h2 id="cost">What it costs</h2>
-      <p>Voicy runs speech recognition on its own GPU computers, so each chat is activated once with a donation: Telegram Stars tiers, a card through Stripe, or any amount of at least $6.99 by sending, for example, <code>/donate 15.69</code>. Donations are per chat, not per person. Subscribers of the <a href="https://t.me/golden_borodutch">@golden_borodutch</a> channel get 50 transcriptions for free before they need to activate a chat.</p>
+      <p>Speech recognition runs on our own GPU hardware, so each chat needs a one-time donation to activate: pick a Telegram Stars tier, pay by card via Stripe, or donate any amount from $6.99 up with a command like <code>/donate 15.69</code>. Activation covers one chat, not your whole account. Subscribers to <a href="https://t.me/golden_borodutch">@golden_borodutch</a> get 50 free transcriptions before needing to activate.</p>
 
       <h2 id="tested">What was checked, and how</h2>
-      <p class="meta">Checked on 2026-11-05 against the bot's source at commit ec9d855 (the main branch that day) with Node.js 22.23.4.</p>
-      <p>We read the handlers behind each step above, the English texts the bot sends, and the checks for file type and size. We then ran the bot's own file-type check and size check on 15 sample messages, and the table and the 100 MB line above are what they printed. For example, a message whose document is named <code>x.OGG</code> was accepted, <code>x.pdf</code>, <code>x.txt</code> and <code>a.zip</code> were ignored, and 104,857,600 bytes passed while 104,857,601 did not. On 2026-11-09 we checked the <code>/files</code> setting again against commit f68729c, the version the live bot runs: a new chat starts with files switched off. We did not send a voice message through the live bot from this machine, so the timing of a real transcription and its accuracy are not measured here; the <a href="https://github.com/backmeupplz/voicy">source is on GitHub</a> if you want to read the same code.</p>
+      <p class="meta">Checked on 2026-11-05 against Voicy's source at commit ec9d855 (main that day) on Node.js 22.23.4.</p>
+      <p>I went through the bot's handlers, English strings, and file-type and size guards, then ran its own validation functions against 15 test messages to confirm the table and the 100 MB cap. A document named <code>x.OGG</code> passed, <code>x.pdf</code>, <code>x.txt</code>, and <code>a.zip</code> were ignored, and 104,857,600 bytes passed while 104,857,601 failed. On 2026-11-09 I rechecked <code>/files</code> against commit f68729c (live in production) to confirm new chats start with files off. I didn't send live audio from this box, so transcription latency and accuracy aren't benchmarked here; you can read the same code in the <a href="https://github.com/backmeupplz/voicy">GitHub repo</a>.</p>
 
       <h2 id="faq">Questions</h2>
       <h3>Can I turn a Telegram voice message into text without installing anything?</h3>
-      <p>Yes. Voicy is a Telegram bot, so there is nothing to install: open @voicybot, or reply to the voice message in your own chat with @voicybot in the message, and it answers with the text.</p>
+      <p>Yes. Voicy runs inside Telegram with nothing to install: forward a voice message to @voicybot, or reply to it in your own chat with @voicybot, and it sends back the text.</p>
       <h3>How do I turn voice messages in a group chat into text?</h3>
-      <p>Add @voicybot to the group. It can turn every voice message into text, or only the ones someone replies to with /transcribe. /transcribe_all switches between the two.</p>
+      <p>Add @voicybot to the group. It can transcribe every voice message automatically or only the ones someone replies to with /transcribe, and /transcribe_all toggles between the two.</p>
       <h3>Which files can Voicy turn into text?</h3>
-      <p>Voice messages, round video messages, audio files and videos, and documents whose name ends in a common audio or video extension such as .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4 or .mov. Anything over 100 MB is refused. Audio files, videos and documents are off in a new chat until someone sends /files there, while voice messages and round video messages don't need it.</p>
+      <p>Voice messages, round video notes, audio and video files, and documents with common audio or video extensions like .ogg, .opus, .mp3, .m4a, .flac, .wav, .mp4, or .mov. Anything over 100 MB is rejected. Audio, video, and document files stay off in new chats until someone sends /files, while voice messages and video notes work out of the box.</p>
       <h3>Does Voicy cost anything?</h3>
-      <p>Each chat is activated once with a donation, in Telegram Stars or by card, because the speech recognition runs on GPUs we pay for. Send /donate in the chat you want to activate; a group needs its own. Subscribers of the @golden_borodutch channel get 50 transcriptions for free.</p>
+      <p>Each chat is activated once with a donation (Telegram Stars or card) to cover the GPUs running speech recognition. Send /donate in whichever chat or group you want to activate. @golden_borodutch channel subscribers get 50 transcriptions free.</p>
       <h3>Is the text accurate?</h3>
-      <p>Voicy uses Whisper, an open-source model trained on about 100 languages, and the status message says when the text is still a draft. We haven't published an accuracy benchmark, so check names and numbers against the audio.</p>
+      <p>Voicy runs Whisper, an open-source model covering about 100 languages, and marks draft output in its status line. We haven't published an accuracy benchmark, so double-check names and numbers against the recording.</p>
     </main>
     <footer>
       <a href="/">Voicy home</a> · <a href="https://github.com/backmeupplz/voicy">Open source</a> · Stats at <a href="https://borodutch.com">borodutch.com</a>
