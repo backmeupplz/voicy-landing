@@ -1,12 +1,12 @@
 # Voicy
 
-> Voicy (@voicybot) is an open-source Telegram bot that turns voice messages and audio files (.ogg, .flac, .wav, .mp3, up to 100 MB) into text. Audio files are off in a new chat until someone sends /files there. Send it a voice message in a private chat, or add it to a group chat, where it either replies to every voice message with its text or waits until someone replies to a message with /transcribe.
+> Voicy (@voicybot) is an open-source Telegram bot that turns voice messages, round video notes, and audio or video files (27 extensions including .ogg, .opus, .flac, .wav, .mp3, .m4a and .mp4, up to 100 MB) into text. Audio files, videos and media documents stay off in a new chat until someone sends /files there. Send a voice message in a private chat, reply to one with @voicybot in Telegram Guest Mode, or add Voicy to a group, where it transcribes every incoming voice message by default (/transcribe_all switches to reply-only mode with /transcribe).
 
-Speech recognition runs on Voicy's own computers with Whisper, an open-source model trained on about 100 languages. Each chat is activated once with a donation, in Telegram Stars or by card (/donate in that chat), which pays for the GPU time; subscribers of the @golden_borodutch channel get 50 transcriptions for free. The bot's interface speaks English, German, Spanish, Portuguese, Russian and Ukrainian (/language changes it). Voicy is MIT-licensed and made by Nikita Kolmogorov.
+Speech recognition runs on Voicy's own GPUs with open-source Whisper (large-v3), which auto-detects roughly 100 spoken languages. Voicy is not free: each chat is activated once with a donation via /donate (from 300 Telegram Stars, $6.99 by card through Stripe, or tokens to borodutch.eth), while subscribers of @golden_borodutch get 50 free transcriptions per user first. The bot's menus speak English, German, Spanish, Portuguese, Russian and Ukrainian (/language changes the interface language). Voicy is MIT-licensed and made by Nikita Kolmogorov.
 
 ## Links
 
 - [Open @voicybot in Telegram](https://t.me/voicybot)
-- [How to turn a Telegram voice message into text](https://voicybot.com/voice-message-to-text/): private chats, groups, accepted files, limits and cost
+- [Telegram voice message to text with @voicybot (up to 100 MB)](https://voicybot.com/voice-message-to-text/): private chats, groups, Guest Mode, accepted files, limits and cost
 - [Source code](https://github.com/backmeupplz/voicy)
 - Translations of this page: [Русский](https://voicybot.com/ru/), [Українська](https://voicybot.com/uk/), [Español](https://voicybot.com/es/), [Português](https://voicybot.com/pt/), [Deutsch](https://voicybot.com/de/)
